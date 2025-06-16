@@ -12,7 +12,7 @@ const imagePaths = ["images/RockGame.jpg", "images/PaperGame.jpg", "images/Sciss
 
 // Texts
 const resultText = document.getElementById("result");
-resultText.textContent = "";
+resultText.textContent = "Pick a hand gesture";
 
 let playerGesture = "";
 const handgestures = ["rock", "paper", "scissor"];
@@ -138,7 +138,7 @@ function start() {
     }
 
     setTimeout(() => {
-        resultText.textContent = "";
+        resultText.textContent = "Pick a hand gesture";
 
         rockButton.disabled = false;
         paperButton.disabled = false;
