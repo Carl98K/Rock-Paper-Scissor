@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>Rock Paper Scissor</title>
+</head>
+
+<body>
+
+    <div id="intro-container">
+        <h1>Rock<span class="icons rock"><img src="images/Rock.png" alt=""></span> Paper<span class="icons paper"><img
+                    src="images/paper 2.png" alt=""></span> Scissor<span class="icons scissor"><img
+                    src="images/Scissor.png" alt=""></span></h1>
+
+        <div id="tutorial">
+            <h2>How to play: Players simultaneously "throw" one of three hand gestures (rock, paper, or scissors) with
+                rock beating scissors, paper beating rock, and scissors beating paper, to determine a winner.</h2>
+        </div>
+    </div>
+
+    <div id="game-container">
+        <img id="playerImage" class="hands" src="images/RockGame.jpg" alt="hand rock sign">
+        <h2>:</h2>
+        <img id="cpuImage" class="hands" src="images/ScissorGame.jpg" alt="hand scissor sign">
+    </div>
+
+    <div>
+        <h3 id="result">You win!</h3>
+    </div>
+
+    <div id="buttons">
+        <div id="gestures">
+            <button id="rockBtn" class="gesture rock">Rock</button>
+            <button id="paperBtn" class="gesture paper">Paper</button>
+            <button id="scissorBtn" class="gesture scissor">Scissor</button>
+        </div>
+
+        <div>
+            <button id="goBtn">Go</button>
+            <button id="restartBtn">Restart</button>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
