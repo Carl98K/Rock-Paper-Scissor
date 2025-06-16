@@ -8,43 +8,88 @@ const restartButton = document.getElementById("restartBtn");
 // Images
 const playerImage = document.getElementById("playerImage");
 const cpuImage = document.getElementById("cpuImage");
+const imagePaths = ["images/RockGame.jpg", "images/PaperGame.jpg", "images/ScissorGame.jpg"];
 
 // Texts
 const resultText = document.getElementById("result");
-
-playerImage.style.opacity = 0;
-cpuImage.style.opacity = 0;
-
 resultText.textContent = "";
 
 let playerGesture = "";
 const handgestures = ["rock", "paper", "scissor"];
 
+let num = 0;
+let intervalID;
+
+function startInterval() {
+    intervalID = setInterval(function () {
+        if (num < 3) {
+            playerImage.src = imagePaths[num];
+            cpuImage.src = imagePaths[num];
+            num++;
+        }
+        else {
+            num = 0;
+        }
+    }, 200);
+}
+
+startInterval();
+
+function stopInterval() {
+    clearInterval(intervalID);
+}
+
+
 rockButton.addEventListener("click", function () {
-    playerImage.src = "images/RockGame.jpg";
+    stopInterval();
+
+    playerImage.src = imagePaths[0];
 
     playerImage.style.opacity = 1;
 
     playerGesture = "rock";
+
+    start();
+
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorButton.disabled = true;
 });
 
 paperButton.addEventListener("click", function () {
-    playerImage.src = "images/PaperGame.jpg";
+    stopInterval();
+
+    playerImage.src = imagePaths[1];
 
     playerImage.style.opacity = 1;
 
     playerGesture = "paper";
+
+    start();
+
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorButton.disabled = true;
 });
 
 scissorButton.addEventListener("click", function () {
-    playerImage.src = "images/ScissorGame.jpg";
+    stopInterval();
+
+    playerImage.src = imagePaths[2];
 
     playerImage.style.opacity = 1;
 
     playerGesture = "scissor";
+
+    start();
+
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorButton.disabled = true;
 });
 
-goButton.addEventListener("click", function () {
+
+function start() {
     let cpuGesture = handgestures[Math.floor(Math.random() * 3)];
 
     console.log(cpuGesture);
@@ -92,12 +137,17 @@ goButton.addEventListener("click", function () {
         }
     }
 
+    setTimeout(() => {
+        resultText.textContent = "";
+
+        rockButton.disabled = false;
+        paperButton.disabled = false;
+        scissorButton.disabled = false;
+
+        startInterval();
+    }, 1500);
+
+
+
     checkCondition();
-});
-
-restartButton.addEventListener("click", function () {
-    playerImage.style.opacity = 0;
-    cpuImage.style.opacity = 0;
-
-    resultText.textContent = "";
-})
+}
